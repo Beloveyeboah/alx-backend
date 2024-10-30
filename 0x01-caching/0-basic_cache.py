@@ -1,39 +1,38 @@
 #!/usr/bin/python3
-
 """
 Create a class BasicCache that inherits from BaseCaching
 """
 
-
-class BaseCaching:
-    """BaseCaching class"""
-    def __init__(self):
-        self.cache_data = {}
-
-    def print_cache(self):
-        """Print the cache"""
-        print("Current cache:")
-        for key in sorted(self.cache_data.keys()):
-            print("{}: {}".format(key, self.cache_data[key]))
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """BasicCache class that inherits from BaseCaching"""
+    """_summary_
+    """
+
+    def __init__(self):
+        """_summary_
+        """
+        super().__init__()
 
     def put(self, key, item):
-        """
-        Add an item in the cache.
-        If key or item is None, do nothing.
+        """_summary_
+
+        Args:
+                key (_type_): _description_
+                item (_type_): _description_
         """
         if key is None or item is None:
-            return
-        self.cache_data[key] = item
+            pass
+        else:
+            self.cache_data[key] = item
 
     def get(self, key):
+        """return the value in self.cache_data linked to key
+
+        Args:
+                key (_type_): _description_
         """
-        Get an item by key from the cache.
-        If the key is None or doesn't exist, return None.
-        """
-        if key is None:
+        if key is None or key not in self.cache_data.keys():
             return None
-        return self.cache_data.get(key, None)
+        return self.cache_data.get(key)
