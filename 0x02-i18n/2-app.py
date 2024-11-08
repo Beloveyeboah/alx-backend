@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """Create a get_locale function with
 the babel.localeselector
